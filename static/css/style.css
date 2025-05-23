@@ -1,0 +1,228 @@
+/* static/css/style.css */
+
+/* General Body & Navbar (if any specific changes beyond Bootstrap) */
+body {
+  /* Adjust if navbar is fixed-top and has a specific height */
+}
+
+/* Status Cards */
+.status-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Slightly reduced margin */
+  padding: 0.6rem; /* Slightly adjusted padding */
+  border-radius: 0.375rem; /* Bootstrap's .rounded */
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease; /* Smoother transition */
+}
+
+.status-item i {
+  font-size: 1.15rem; /* Slightly reduced icon size */
+  margin-right: 0.6rem;
+  color: #0d6efd; /* Bootstrap primary blue */
+  min-width: 20px; /* Ensure icons align well */
+  text-align: center;
+}
+
+.status-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Status Update Animation */
+.status-update {
+  animation: statusHighlight 0.8s ease-out; /* Slightly faster animation */
+}
+
+@keyframes statusHighlight {
+  0% {
+    background-color: #f8f9fa;
+  }
+  50% {
+    background-color: #cfe2ff;
+  } /* Lighter blue for highlight */
+  100% {
+    background-color: #f8f9fa;
+  }
+}
+
+/* Blockchain Display */
+.blockchain-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem; /* Add some padding if needed */
+}
+
+.block.card {
+  /* Targeting blocks that are also cards */
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.block.card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /* Softer, larger hover shadow */
+  transform: translateY(-3px);
+}
+
+.block-header {
+  /* Already styled by Bootstrap card-header */
+  /* Customizations if needed: */
+  /* background-color: #e9ecef; */
+}
+
+.block-index {
+  font-size: 1.1rem; /* Slightly smaller for compactness */
+  color: #0d6efd;
+}
+
+.block-hash {
+  /* Applied to the span next to block index */
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.75rem; /* Smaller hash */
+}
+.block-details p.card-text strong {
+  /* Make labels in block details slightly bolder */
+  font-weight: 500;
+}
+
+.transactions-list .transaction-item {
+  /* display: flex; already handled by d-flex */
+  /* justify-content: space-between; already handled */
+  /* align-items: center; already handled */
+  padding: 0.35rem 0.5rem; /* Compact padding */
+  background-color: #f8f9fa;
+  /* border-radius: 0.25rem; already handled by .rounded */
+  margin-bottom: 0.3rem;
+}
+.transactions-list .transaction-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Textareas used for key display */
+textarea.key-display {
+  font-size: 0.75em !important; /* Ensure small font for PEM keys */
+  word-break: break-all;
+  white-space: pre-wrap; /* Preserve newlines and wrap */
+  resize: none;
+  background-color: #e9ecef; /* Slightly different background to indicate readonly */
+  cursor: text; /* Indicate it's selectable */
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+/* Specific styling for the main user's public key display */
+#user-public-key-display.key-display {
+  background-color: #f8f9fa; /* Match other readonly-like fields */
+  border: 1px solid #dee2e6;
+}
+
+/* User Directory Styles */
+#user-directory-display {
+  font-size: 0.9rem;
+}
+.user-directory-entry {
+  border-bottom: 1px solid #f0f0f0; /* Lighter border */
+  padding: 0.5rem 0.25rem; /* Vertical padding, less horizontal */
+  margin-bottom: 0.25rem;
+  transition: background-color 0.2s ease-in-out;
+}
+.user-directory-entry:hover {
+  background-color: #f8f9fa; /* Slight hover effect */
+}
+.user-directory-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.user-pubkey-short {
+  /* Span for directory user's shortened public key */
+  font-size: 0.75em;
+  color: #0d6efd; /* Bootstrap primary blue */
+  word-break: keep-all;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  margin-left: 5px; /* Space from name */
+}
+.user-pubkey-short:hover {
+  text-decoration: underline solid;
+  color: #0a58ca; /* Darker blue on hover */
+}
+.directory-balance {
+  /* Span for directory user's balance */
+  font-weight: 500; /* Slightly less bold than fw-bold */
+  font-size: 0.85em;
+}
+
+/* Toast Notifications (Bootstrap's default toast is usually fine) */
+/* .toast { ... } */
+/* .toast-header { ... } */
+
+/* Mining Animation Modal */
+.mining-animation .mining-icon {
+  font-size: 2.5rem;
+  color: #0d6efd;
+  animation: hammerPulse 1.2s infinite ease-in-out; /* Changed animation */
+  margin-bottom: 1rem;
+}
+.mining-hash {
+  /* Div containing prefix and value */
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 1.1rem; /* Slightly smaller */
+  color: #495057; /* Darker gray */
+  background-color: #e9ecef;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  display: inline-block; /* To fit content */
+}
+.mining-hash .hash-prefix {
+  color: #0d6efd;
+  font-weight: bold;
+}
+.mining-stats .stat-item .stat-label {
+  font-size: 0.8rem; /* Smaller labels */
+  color: #6c757d;
+  margin-bottom: 0.1rem;
+}
+.mining-stats .stat-item .stat-value {
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* Modified/New Keyframes */
+@keyframes hammerPulse {
+  /* New animation for mining icon */
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design Adjustments (Bootstrap handles most) */
+@media (max-width: 768px) {
+  .block-details {
+    /* In blockchain visualizer */
+    grid-template-columns: 1fr; /* Stack details on smaller screens */
+  }
+  .navbar-brand {
+    font-size: 1rem; /* Smaller brand on small screens */
+  }
+  .navbar .d-flex .btn {
+    /* Smaller nav buttons */
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .card-header {
+    font-size: 0.95rem; /* Slightly smaller card headers */
+  }
+}
